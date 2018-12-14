@@ -1,0 +1,80 @@
+<div class="header">
+  <div id="logo"><%= link_to "C-Bonds","#" %></div>
+  <ul>
+  </ul>
+</div>
+
+<div class="top-container">
+  <div class="error-modal">
+    <%= render 'shared/error_messages' %>
+  </div>
+  <div class="top-text">
+    <h1 class="title">Welcome <p>to the</p> <p>C-Bonds</p></h1>
+    <p>It is a Sample App.I study it with rails.</p>
+    <div class="btn-wrapper">
+      <div class="top-btn" id="signup"><p>新規登録</p></div>
+      <div class="top-btn" id="signin"><p>ログイン</p></div>
+    </div>
+  </div>
+  <div class="modal-top modal-signup">
+    <div class="row">
+      <span class="fa fa-times fa-2x"></span>
+      <h1 class="title">新規登録</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@user,url: '/') do |f| %>
+
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+          <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="modal-top modal-signin">
+    <span class="fa fa-times fa-2x"></span>
+    <div class="row">
+      <h1 class="title">ログイン</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(:session, url: '/', method: :patch) do |f| %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+
+          <%= f.submit "送信", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(function(){
+  $('#signup').click(function(){
+    $('.modal-signup').fadeIn();
+    $('.error-modal').hide();
+  });
+  $('#signin').click(function(){
+    $('.modal-signin').fadeIn();
+    $('.error-modal').hide();
+  });
+  $('.fa-times').click(function(){
+    $('.modal-top').hide();
+    $('.error-modal').hide();
+  });
+
+  
+  });
+</script>
