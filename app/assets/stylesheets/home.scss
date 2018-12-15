@@ -102,6 +102,11 @@
 }
 
 @media(max-width: 1000px) {
+  .header {
+    ul{
+      display: none;
+    }
+  }
   .top-container{
     background-size: 100%;
     background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8),rgba(255, 0, 161, 0.8));
@@ -117,7 +122,7 @@
 ///////////////////// modal  ///////////////////////////
  .modal-top{
    display: none;
-   height: 60vh;
+   height: 500px;
    width: 90%;
    color: black;
    background-color:white !important;
@@ -180,7 +185,7 @@
     margin: 0 !important;
   }
   .modal-signin{
-    height: 350px;
+    height: 400px;
   }
 
  .error_explanation{
