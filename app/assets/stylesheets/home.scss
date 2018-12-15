@@ -23,9 +23,32 @@
         text-decoration: none;
       }
     }
+    ul {
+      display: inline-block;
+      float: right;
+      li {
+        display: inline-block;
+        list-style: none;
+        height: 90px;
+        width: 120px;
+        text-align: center;
+        a {
+          display: inline-block;
+          color: white;
+          font-size: 20px;
+          text-decoration: none;
+          line-height: 90px;
+          margin: 0 auto;
+        }
+      }
+    }
   }
 
-
+  .alert {
+    position: relative;
+    z-index: 300;
+    margin: 0 !important;
+  }
 
 
 
@@ -40,7 +63,6 @@
 }
 
 .top-container {
-  margin-top: 90px;
   background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8),
                rgba(255, 0, 161, 0.8)),url("kizuna.jpg");
   background-size: cover;
@@ -134,7 +156,14 @@
    left: 50%;
    transform: translate(-50%,-50%);
    z-index: 100;
-  cursor: pointer;
+   .fa-times{
+    cursor: pointer;
+   }
+   .alert {
+     position: relative;
+     top: 0px;
+   }
+
 }
 
 @media(max-width: 340px){
