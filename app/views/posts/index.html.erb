@@ -1,0 +1,28 @@
+<h1 class="title">タイムライン</h1>
+<p><%= paginate @posts %></p>
+<div class="container-posts">
+  <% @posts.order("updated_at DESC").each do |post| %>
+    <%= link_to "/posts/show/#{post.id}" do %>
+      <div class="index-post"> 
+        <%= post.title %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<script>
+  $(function(){
+    $('.index-post').hover(
+      function(){
+        $(this).stop().animate({
+          width: "210",
+          height: "210"
+        });
+      },
+      function(){
+        $(this).stop().animate({
+          width: "200",
+          height: "200"
+          });
+        });
+  });
+</script>

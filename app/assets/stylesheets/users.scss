@@ -36,3 +36,42 @@ $gray-medium-light: #eaeaea;
     color: $state-danger-text;
   }
 }
+
+//////////////////////// show ///////////////////////////////
+ .user-page{
+   img{
+     width: 150px;
+     height: 150px;
+   }
+ }
+
+ .user-prof{
+   width: 95%;
+   margin: 0 auto;
+   padding-top: 20px;
+ }
+
+ .user {
+   width: 25%;
+   margin-right: 5%;
+ }
+
+ .mypost {
+   width: 65%;
+   float: right;
+   h1{
+     margin-top: 0;
+   }
+ }
+ .user, .mypost{
+   display: inline-block;
+   text-align: center;
+   p{
+     font-size: 50px;
+     font-weight: bold;
+     margin: 0;
+     a{
+       font-size: 20px;
+     }
+   }
+ }

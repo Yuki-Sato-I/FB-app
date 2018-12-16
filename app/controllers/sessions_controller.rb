@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-  end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -9,7 +7,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
-      flash.now[:danger] = 'invalid email/password combination'
+      flash.now[:danger] = 'パスワードとメールの組み合わせが正しくありません.'
       @user = User.new
       render 'home/top'
     end

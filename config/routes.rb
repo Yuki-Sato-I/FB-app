@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  ####################  commnets  #####################
+  post '/comments/new/:id', to: 'comments#create'
+  ####################  posts  ########################3
+  get '/posts/index', to: 'posts#index'
+  get '/posts/new', to: 'posts#new'
+  post '/posts/new', to: 'posts#create'
+  get '/posts/show/:id', to: 'posts#show'
+  get '/posts/edit/:id', to: 'posts#edit'
+  patch '/posts/edit/:id', to: 'posts#update'
+  delete '/posts/:id', to: 'posts#destroy'
   #################### home #######################
   get '/', to: 'home#top'
   #################################################

@@ -1,0 +1,78 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//////////////// new /////////////////////////
+ .form-content {
+   height: 500px !important;
+}
+
+.post-container{
+  text-align: center;
+}
+
+ .post{
+   margin-top: 30px;
+   text-align: center;
+   display: inline-block;
+   background-color: #eeeeee;
+   border-radius: 5px;
+   box-shadow: 3px 3px rgba(black,0.6);
+   width: 95vw;
+   img{
+     width: 70%;
+     height: 30vh;
+   }
+ }
+ @media(min-width: 800px){
+  .post{
+    img{
+      width: 700px;
+      height: 400px;
+    }
+  }
+ }
+ .post-content{
+   text-align: left;
+   width: 95%;
+   margin: 10px auto;
+ }
+
+ ///////////////////  show //////////////////
+ .comment{
+   margin: 3px auto;
+   border: 2px solid black;
+   border-radius: 7px;
+   p {
+     margin: 0;
+     text-align: left;
+   }
+ }
+
+ @media(min-width: 800px) {
+  .comment{
+    width: 700px !important;
+  }
+ }
+
+ ////////////////  index  /////////////////////
+ .container-posts {
+   width: 95%;
+   margin: 10px auto;
+   padding-top: 10px;
+   text-align: center;
+   .index-post{
+    display: inline-block;
+    text-align: center;
+    margin: 5px 5px;
+    vertical-align: top; ///////////////これすげー　文をトップに合わせる
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+   }
+ }
+
+ @media(min-width: 1000px){
+   .container-posts{
+     width: 900px;
+   }
+ }

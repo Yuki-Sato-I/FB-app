@@ -1,0 +1,50 @@
+<div class="post-container">
+  <div class="post">
+    <h2><%= @post.title %></h2>
+    <% if @post.image == nil %>
+      <%= image_tag "default.jpg" %>
+    <% else %>
+      <%= image_tag "#{@post.image}" %>
+    <% end %>
+    <div class="post-content">
+      <%= simple_format(@post.content) %><!-- 改行を出力する為 --> 
+    </div>
+    made by <%= link_to "#{@user.name}", @user %>
+    <% if current_user.id == @user.id %>
+      |<%= link_to "編集", "/posts/edit/#{@post.id}" %>|<%= link_to "削除","/posts/#{@post.id}",method: :delete, data: {confirm: "削除してよろしいですか?"} %>
+    <% end %>
+  </div>
+  <div class="coments">
+    <h2>コメント一覧</h2>
+    <hr>
+    <%= paginate @comments %>
+    <% @comments.order("updated_at DESC").each do |comment| %>
+      <div class="comment", style="width:95%; height:180px; overflow:auto;">
+        <p><%= comment.user.name %><%= simple_format(comment.content) %><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@comment,url: "/comments/new/#{@post.id}") do |f| %>
+          <% if @comment.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@comment.errors.count, "error") %>.
+              </div>
+              <ul>
+              <% @comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <%= f.label :content ,"コメント内容"%>
+          <%= f.text_area :content, class: 'form-control' %>
+
+          <%= f.submit "コメントする", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
