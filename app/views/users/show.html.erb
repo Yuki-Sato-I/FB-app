@@ -1,21 +1,31 @@
 <div class="user-page">
   <div class="user-prof">
     <div class="user">
-      <%= image_tag 'default.jpg' %>
+      <% if @user.image? %>
+        <%= image_tag @user.image.to_s %>
+      <% else %>
+        <%= image_tag "default.jpg" %>
+      <% end %>
       <p><%= @user.name %></p>
       <% if @user.id == current_user.id %>
-        <span><%= link_to "プロフィール編集","#" %></span>
-        <span><%= link_to "新規投稿", "/posts/new" %>
+        <span><%= link_to "プロフィール編集","/users/#{@user.id}/edit" %></span>
+        <span><%= link_to "新規投稿", "/posts/new" %></span>
       <% end %>
+      <div class="my-profile">
+        <%= simple_format(@user.profile) %>
+      </div>
     </div>
     <div class="mypost">
-      <h1><%= @user.name %>の投稿</h1>
+      <h1><%= @user.name %>の投稿(<%= @user.posts.count %>)</h1>
       <hr>
-      <% @user.posts.each do |post| %>
+      <% @posts.each do |post| %>
         <p><%= link_to "#{post.title}", "/posts/show/#{post.id}" %></p>
       <% end %>
+      <span><%= paginate @posts, :window => 1 %></span>
     </div>
+    <hr>
     <div class="your-batch">
+      <p id="batch-t">あなたのバッチ</p>
     </div>
   </div>
 </div>

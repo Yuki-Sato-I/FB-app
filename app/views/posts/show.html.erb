@@ -1,26 +1,52 @@
 <div class="post-container">
   <div class="post">
     <h2><%= @post.title %></h2>
-    <% if @post.image == nil %>
-      <%= image_tag "default.jpg" %>
+    <% if @post.image? %>
+      <%= image_tag (@post.image.to_s) %>
     <% else %>
-      <%= image_tag "#{@post.image}" %>
+      <%= image_tag "default.jpg" %>
     <% end %>
     <div class="post-content">
       <%= simple_format(@post.content) %><!-- 改行を出力する為 --> 
     </div>
-    made by <%= link_to "#{@user.name}", @user %>
+    
+    <!-- いいねボタンの実装 -->
+    <p id="good">
+      <% if Like.find_by(user_id: current_user.id, post_id: params[:id]) %>
+        <%= link_to "/likes/#{params[:id]}/destroy", method: :delete, class: "fa fa-heart fa-2x" do %>
+          <!-- <span class="fa fa-heart fa-2x"></span> -->
+        <% end %>
+      <% else %>
+        <%= link_to "/likes/#{params[:id]}/create", method: :post, class: "fa fa-heart-o fa-2x" do %>
+          <!-- <span class="fa fa-heart-o fa-2x"></span> -->
+        <% end %>
+      <% end %>
+      <span><%= @post.likes.count %></span>
+    </p>
+
+    <span>made by <%= link_to "#{@user.name}", @user %></span>
     <% if current_user.id == @user.id %>
       |<%= link_to "編集", "/posts/edit/#{@post.id}" %>|<%= link_to "削除","/posts/#{@post.id}",method: :delete, data: {confirm: "削除してよろしいですか?"} %>
     <% end %>
   </div>
+
+  <!-- コメント -->
   <div class="coments">
     <h2>コメント一覧</h2>
     <hr>
     <%= paginate @comments %>
     <% @comments.order("updated_at DESC").each do |comment| %>
       <div class="comment", style="width:95%; height:180px; overflow:auto;">
-        <p><%= comment.user.name %><%= simple_format(comment.content) %><%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <p>
+          <% if comment.user.image? %>
+            <%= image_tag (comment.user.image.to_s),:size => "30x30" %>
+          <% else %>
+            <%= image_tag 'default.jpg', :size => "30x30" %>
+          <% end %>
+          <%= link_to "#{comment.user.name}" , "/users/#{comment.user.id}" %>
+        </p>
+          <%= simple_format(comment.content) %>
+          <%= comment.updated_at.strftime("%Y-%m-%d %H:%M") %>
       </div>
     <% end %>
     <div class="row">

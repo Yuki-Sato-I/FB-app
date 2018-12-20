@@ -11,6 +11,11 @@
     width: 100%;
     background-color: black;
     color: white;
+
+    .for-phone{
+      margin: 0;
+      padding: 0;
+    }
     #logo{
       height: 90px;
       display: inline-block;
@@ -26,14 +31,23 @@
     ul {
       display: inline-block;
       float: right;
+      .fa-align-justify{
+        line-height: 90px;
+        margin-left: 40px;
+      }
       li {
         display: inline-block;
         list-style: none;
+        line-height: 90px;
         height: 90px;
+        font-size: 20px;
         width: 120px;
         text-align: center;
+        &:hover{
+          opacity: 0.7;
+        }
         a {
-          display: inline-block;
+          display: block;
           color: white;
           font-size: 20px;
           text-decoration: none;
@@ -52,6 +66,41 @@
   .btn {
     margin: 10px auto;
     width: 100%;
+  }
+
+  .account-tab{
+    cursor: pointer;
+  }
+  .ac-list, .toggle-list{
+    display: none;
+    background-color: black;
+    width: 170px;
+    position: fixed;
+      top: 90px;
+      right: 0;
+    text-align: center;
+    p {
+      margin: 5px 0;
+    }
+    hr {
+      margin: 0;
+    }
+    a{
+      font-size: 20px;
+      text-decoration: none;
+      color: white;
+      &:hover{
+        opacity: 0.7;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media(min-width: 1000px){
+    .for-phone{
+      display: none !important;
+    }
   }
 
 
@@ -112,7 +161,7 @@
 
 @media(max-width: 1000px) {
   .header {
-    ul{
+    .for-pc{
       display: none;
     }
   }

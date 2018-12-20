@@ -1,0 +1,9 @@
+ja: 
+ 
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      next: ""
+      previous: ""
+      truncate: "&hellip;"

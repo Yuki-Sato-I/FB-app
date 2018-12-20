@@ -26,7 +26,7 @@
  @media(min-width: 800px){
   .post{
     img{
-      width: 700px;
+      width: 600px;
       height: 400px;
     }
   }
@@ -44,7 +44,25 @@
    border-radius: 7px;
    p {
      margin: 0;
+     width: 650px;
+     margin: 0 auto;
      text-align: left;
+   }
+ }
+ .post {
+   #good{
+     text-align: left;
+     margin-left: 2%;
+     color: black;
+   }
+   .fa {
+     text-decoration: none ; 
+   }
+   .fa-heart{
+     color: rgb(248, 74, 74);
+   }
+   .fa-heart-o{
+     color: black;
    }
  }
 
@@ -60,6 +78,10 @@
    margin: 10px auto;
    padding-top: 10px;
    text-align: center;
+   text-decoration: none;
+   a {
+    display: inline-block;
+  }
    .index-post{
     display: inline-block;
     text-align: center;
@@ -68,9 +90,28 @@
     width: 200px;
     height: 200px;
     border: 2px solid black;
+    span{
+      float: none;
+    }
+    img {
+      transition: 400ms;
+       &:hover{
+           width: 206px;
+           height: 176px;
+       }
+      }
    }
  }
 
+ .next, .prev{
+  a{
+    padding: 0 !important;
+    border: none !important;
+  }
+}
+ .pagination {
+   display: inline-block !important;
+ }
  @media(min-width: 1000px){
    .container-posts{
      width: 900px;

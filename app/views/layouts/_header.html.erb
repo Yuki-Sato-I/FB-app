@@ -1,0 +1,54 @@
+<div class="header">
+  <div id="logo">
+    <% if current_user %>
+      <%= link_to "C-Bonds","/users/#{current_user.id}" %>
+    <% else %>
+      <%= link_to "C-Bonds","/" %>
+    <% end %>
+  </div>
+  <ul class="for-pc">
+    <li><%= link_to "Help", "#" %></li>  
+    <li><%= link_to "About", "#" %></li>  
+    <% if current_user %>
+    <li class="account-tab">Account</li> 
+    <div class="ac-list">
+      <p><%= link_to "マイページ", "/users/#{current_user.id}" %></p>
+      <p><%= link_to "プロフィール編集", "/users/#{current_user.id}/edit" %></p>
+      <p><%= link_to "タイムライン","/posts/index" %></p>
+      <hr>
+      <p><%= link_to "ログアウト", "/logout",method: :delete %></p>
+    </div>
+    <% else %>
+      <hr>
+      <li><%= link_to "ログイン", "#" %></li>
+    <% end %>
+  </ul>
+  <ul class="for-phone">
+    <li><span class="fa fa-align-justify fa-2x"></span></li>
+    <div class="toggle-list">
+      <p><%= link_to "Help", "#" %></p>
+      <p><%= link_to "About", "#" %></p>
+      <% if current_user %>
+        <p><%= link_to "マイページ", "/users/#{current_user.id}" %></p>
+        <p><%= link_to "プロフィール編集", "/users/#{current_user.id}/edit" %></p>
+        <p><%= link_to "タイムライン","/posts/index" %></p>
+        <hr>
+        <p><%= link_to "ログアウト", "/logout",method: :delete %></p>
+      <% else %>
+        <hr>
+        <p><%= link_to "ログイン", "#" %></p>
+      <% end %>
+    </div>
+  </ul>
+</div>
+<script>
+$(function(){
+  $('.account-tab').click(function(){
+    $('.ac-list').slideToggle();
+  });
+  $('.for-phone').click(function(){
+    $('.toggle-list').slideToggle();
+  });
+
+});
+</script>

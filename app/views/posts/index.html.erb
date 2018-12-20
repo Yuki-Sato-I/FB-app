@@ -1,13 +1,18 @@
 <h1 class="title">タイムライン</h1>
-<p><%= paginate @posts %></p>
 <div class="container-posts">
   <% @posts.order("updated_at DESC").each do |post| %>
     <%= link_to "/posts/show/#{post.id}" do %>
       <div class="index-post"> 
-        <%= post.title %>
+        <p><%= post.title %></p>
+        <% if !post.image? %>
+          <%= image_tag "default.jpg" ,:size => "196x166" %>
+        <% else %>
+          <%= image_tag post.image.to_s ,:size => "196x166"%>
+        <% end %>
       </div>
     <% end %>
   <% end %>
+  <%= paginate @posts,:window => 1 %>
 </div>
 <script>
   $(function(){

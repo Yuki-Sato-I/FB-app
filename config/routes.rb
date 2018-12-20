@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  ####################  likes  ########################
+  post '/likes/:post_id/create', to: 'likes#create'
+  delete '/likes/:post_id/destroy', to: 'likes#destroy'
   ####################  commnets  #####################
   post '/comments/new/:id', to: 'comments#create'
   ####################  posts  ########################3

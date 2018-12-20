@@ -19,15 +19,7 @@
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
-    <div class="header">
-      <div id="logo"><%= link_to "C-Bonds","#" %></div>
-      <ul>
-        <li><%= link_to "Account", "#" %></li>
-        <li><%= link_to "Help", "#" %></li>
-        <li><%= link_to "タイムライン","/posts/index" %></li>
-        <li><%= link_to "ログアウト", "/logout",method: :delete %></li>
-      </ul>
-    </div>
+    <%= render 'layouts/header' %>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </body>
