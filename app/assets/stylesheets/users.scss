@@ -143,3 +143,18 @@ $gray-medium-light: #eaeaea;
      height: 100px;
    }
  }
+
+ ///////////////////  index  //////////////////////
+
+.users {
+  ul{
+    margin: 15px auto;
+  }
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}

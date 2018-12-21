@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user,only: [:edit,:update,:show,:index]
+  before_action :correct_user, only:[:edit, :update]
+  before_action :admin_user, only: [:index,:destroy]
+
   def index
+    @users = User.all.page(params[:page]).per(10)
   end
 
   def show

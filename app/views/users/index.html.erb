@@ -1,0 +1,13 @@
+<ul class="users">
+<span><%= paginate @users %></span>
+  <% @users.each do |user| %>
+    <li>
+      <% if user.image? %>
+        <%= image_tag user.image.to_s, :size => "100x100" %>
+      <% else %>
+        <%= image_tag "default.jpg", :size => "100x100" %>
+      <% end %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
