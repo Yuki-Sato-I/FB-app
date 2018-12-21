@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   delete '/posts/:id', to: 'posts#destroy'
   #################### home #######################
   get '/', to: 'home#top'
+  get '/help', to: 'home#help'
+  get '/about', to: 'home#about'
   #################################################
   post '/', to: 'users#create'
   ##################  Session  ####################

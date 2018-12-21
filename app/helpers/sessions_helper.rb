@@ -40,4 +40,25 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def degree(num,lang)
+    if num != 0 && num < 5 
+      return ["初めての#{lang}", "medal01"]
+    elsif num < 10
+      return ["#{lang}初心者", "medal02"]
+    elsif num < 20
+      return ["#{lang}する人", "medal03"]
+    elsif num < 50
+      return ["#{lang}中級者", "medal04"]
+    elsif num == 77
+      return ["ラッキー#{lang}","medal5"]
+    elsif num < 100
+      return ["#{lang}上級者","medal05"]
+    elsif num > 100
+      return ["#{lang}マスター","medal06"]
+    else
+      return
+    end
+  end
+
 end

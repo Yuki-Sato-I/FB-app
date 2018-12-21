@@ -25,7 +25,38 @@
     </div>
     <hr>
     <div class="your-batch">
-      <p id="batch-t">あなたのバッチ</p>
+      <p id="batch-t">あなたの称号</p>
+      <% if @user.likes.count != 0 %>
+        <div class="batch">
+          <% a = degree(@user.likes.count,"いいね") %>
+          <div><%= a[0] %></div>
+          <%= image_tag "#{a[1]}.jpg" %>
+        </div>
+      <% end %>
+      <% if @user.posts.count != 0 %>
+        <div class="batch">
+          <% a = degree(@user.posts.count,"投稿") %>
+          <div><%= a[0] %></div>
+          <%= image_tag "#{a[1]}.jpg" %>
+        </div>
+      <% end %>
+      <% if @user.comments.count != 0 %>
+        <div class="batch">
+          <% a = degree(@user.comments.count, "コメント") %>
+          <div><%= a[0] %></div>
+          <%= image_tag "#{a[1]}.jpg" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+<script>
+$(function(){
+  $('.batch').hover(function(){
+    $(this).find('div').show();
+  },
+  function(){
+    $(this).find('div').hide();
+  });
+});
+</script>

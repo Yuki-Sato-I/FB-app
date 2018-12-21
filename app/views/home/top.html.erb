@@ -6,8 +6,8 @@
     <h1 class="title">Welcome <p>to the</p> <p>C-Bonds</p></h1>
     <p>It is a Sample App.I study it with rails.</p>
     <div class="btn-wrapper">
-      <div class="top-btn" id="signup"><p>新規登録</p></div>
-      <div class="top-btn" id="signin"><p>ログイン</p></div>
+      <div class="top-btn signup"><p>新規登録</p></div>
+      <div class="top-btn signin"><p>ログイン</p></div>
     </div>
   </div>
   <div class="modal-top modal-signup">
@@ -61,13 +61,15 @@
 
 <script>
 $(function(){
-  $('#signup').click(function(){
+  $('.signup').click(function(){
     $('.modal-signup').fadeIn();
     $('.error-modal').hide();
+    $('.modal-signin').hide();
   });
-  $('#signin').click(function(){
+  $('.signin').click(function(){
     $('.modal-signin').fadeIn();
     $('.error-modal').hide();
+    $('.modal-signup').hide();
   });
   $('.fa-times').click(function(){
     $('.modal-top').hide();
