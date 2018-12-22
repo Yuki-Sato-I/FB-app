@@ -1,6 +1,11 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+///////////////////// terms_of_service ////////////////
+  .terms_of_service, .policy{
+    width: 95%;
+    margin: 0 auto;
+  }
 /////////////////////  header  /////////////////////////
   .header{
     position: fixed;
