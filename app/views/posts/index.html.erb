@@ -1,6 +1,6 @@
 <h1 class="title">タイムライン</h1>
 <div class="container-posts">
-  <% @posts.order("updated_at DESC").each do |post| %>
+  <% @posts.each do |post| %>
     <%= link_to "/posts/show/#{post.id}" do %>
       <div class="index-post"> 
         <p><%= post.title %></p>
