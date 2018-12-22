@@ -66,7 +66,7 @@ module SessionsHelper
   end
   
   def correct_user
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     redirect_to '/' unless current_user?(@user)
   end
   
