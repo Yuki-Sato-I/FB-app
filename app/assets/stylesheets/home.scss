@@ -223,6 +223,7 @@
    .alert {
      position: relative;
      top: 0px;
+     margin: 0 10px !important;
    }
 
 }
@@ -249,4 +250,6 @@
    background-color: white !important;
    display: inline-block;
    margin: 0 auto;
+   width: 350px;
+   height: 300px;
  }

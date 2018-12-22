@@ -6,3 +6,22 @@ ja:
       next: ""
       previous: ""
       truncate: "&hellip;"
+  
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+      contact: お問い合わせ
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      post:
+        title: 作品名
+        content: 内容
+      contact:
+        name: 名前
+        email: メールアドレス
+        content: 内容
