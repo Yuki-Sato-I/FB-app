@@ -72,7 +72,9 @@ module SessionsHelper
   
   def admin_user
     logged_in_user
-    redirect_to current_user unless current_user.admin?
+    if current_user
+      redirect_to current_user unless current_user.admin?
+    end
   end
 
   def degree(num,lang)

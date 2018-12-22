@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
+  before_action :admin_user, only:[:index]
   def index
+    @contacts = Contact.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -20,4 +22,5 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit(:name,:content,:email)
     end
+
 end

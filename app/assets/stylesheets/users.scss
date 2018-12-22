@@ -91,6 +91,7 @@ $gray-medium-light: #eaeaea;
      }
    }
    span {
+     width: 100%;
      display: inline-block;
    }
  }
@@ -144,7 +145,7 @@ $gray-medium-light: #eaeaea;
      background-color: lightgray;
      position: absolute;
      top:50px;
-     left: 50px;
+     left: -10px;
      z-index: 2;
    }
    img{

@@ -1,0 +1,12 @@
+<div class="contact-container">
+  <h1 class="title">お問い合わせ一覧</h1>
+  <% @contacts.each do |contact| %>
+    <div class="contact">
+      <p>お問い合わせ者名：<%= contact.name %></p>
+      <p>メールアドレス：<%= contact.email %></p>
+      <p>内容：</p>
+      <p><%= contact.content %></p>
+    </div>
+  <% end %>
+  <%= paginate @contacts %>
+</div>
