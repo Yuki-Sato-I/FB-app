@@ -58,7 +58,9 @@ $gray-medium-light: #eaeaea;
 
  .mypost {
    width: 65%;
+   height: 500px;
    vertical-align: top;
+   position: relative;
    h1{
      margin-top: 0;
    }
@@ -68,6 +70,12 @@ $gray-medium-light: #eaeaea;
    a{
      display: block !important;
      line-height: 60px !important;
+   }
+   span {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
    }
  }
  .user, .mypost{
