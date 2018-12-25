@@ -1,0 +1,5 @@
+C-Bonds へ ようこそ <%= @user.name %>さん
+
+下のリンクをクリックしてアカウントを有効化させてください.
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

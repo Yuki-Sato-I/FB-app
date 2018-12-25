@@ -1,0 +1,10 @@
+<h1>C-Bonds</h1>
+
+<p>C-Bonds　へ ようこそ <%= @user.name %> さん</p>
+
+<p>
+下のリンクをクリックしてアカウントを有効化させてください
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>

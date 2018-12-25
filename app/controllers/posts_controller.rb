@@ -9,6 +9,9 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  #def post_confirm
+  #end
+
   def create
     @post = current_user.posts.build(post_params) #buildは慣習
     if @post.save
